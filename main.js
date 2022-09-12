@@ -25,29 +25,24 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 function validateCred(arr){
-
-    //Function Scope
+    //Function Scope:
     let returnTrueFalseVal = [];
     //
-
-    //grab each card from batch1
+    //grab each card from batch1:
     for(const cards of arr){
       //let nums and let x local variables here:
       let nums = [];
       let x = 0;
       //
-
       //Clear nums arr variable:
       nums = [];
       //
-
       //grab the numbers from each card from the batch
       for(let i = 0; i < cards.length; i++){
         //push card numers into nums arry:
         nums.push(cards[i]);
         //
       }
-
       //Using Luh Algorithm:
       let lastValue = nums.pop();
       nums.reverse();
@@ -61,11 +56,10 @@ function validateCred(arr){
       }
       nums.reverse();
       nums.push(lastValue);
-
+      //
       //Setting the sum of local variable (x) to the num.reduce():
       x = nums.reduce((prevVal, currVal) => prevVal + currVal);
       //
-
       //Checking if the sum of the cards numbers (= 0) when modulo(%) to 10
       if(x % 10 === 0){
         //push true to the return value arry if the number % 10 = 0 (Does equal 0)
@@ -75,6 +69,7 @@ function validateCred(arr){
         //push false to the return value arry if the number % 10 != 0 (Does NOT equal 0)
         returnTrueFalseVal.push(false);
       }
+      //
     }
     //return value to use as helper function
     return returnTrueFalseVal;
@@ -97,18 +92,15 @@ function validateCred(arr){
     let cardCompanyMailList = [];
     //We get all of the cards from the return value of findInvalidCards:
     for(const invalidCards of findInvalidCards(arr)){
-
       //Variable of first index element of each invalid card:
       let firstIndex = invalidCards[0];
       //
-
       //Company names as variables:
       const amex = 'Amex (American Express)';
       const visa = 'Visa';
       const master = 'Mastercard';
       const discover = 'Discover';
       //
-
       //Switch through first index element
       switch (firstIndex){
         case 3:
